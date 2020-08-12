@@ -1,15 +1,13 @@
 package com.atul.sfgpetclinic.model;
 
-import java.util.Set;
-
 public class PetType extends BaseEntity{
-    private Set<Pet> petSet;
+    private String name;
 
-    public Set<Pet> getPetSet() {
-        return petSet;
+    public String getName() {
+        return name;
     }
 
-    public void setPetSet(Set<Pet> petSet) {
-        this.petSet = petSet;
+    public void setName(String name) {
+        this.name = name;
     }
 }
