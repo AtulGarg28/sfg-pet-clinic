@@ -8,10 +8,11 @@ D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\ma
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\springdatajpa\VetSDJpaService.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\repositories\VetRepository.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\model\Vet.java
+D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\map\OwnerMapService.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\model\Speciality.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\repositories\PetTypeRepository.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\CrudService.java
-D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\map\VetServiceMap.java
+D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\map\VetMapService.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\springdatajpa\OwnerSDJpaService.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\model\BaseEntity.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\model\Owner.java
@@ -21,7 +22,6 @@ D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\ma
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\repositories\PetRepository.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\PetService.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\model\Pet.java
-D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\map\OwnerServiceMap.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\springdatajpa\PetTypeSDJpaService.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\model\Visit.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\map\VisitMapService.java
@@ -30,5 +30,5 @@ D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\ma
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\springdatajpa\VisitSDJpaService.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\OwnerService.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\map\AbstractMapService.java
-D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\map\PetServiceMap.java
+D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\services\map\PetMapService.java
 D:\Intellij spring projects\SFG pet clinic\sfg-pet-clinic\pet-clinic-data\src\main\java\com\atul\sfgpetclinic\repositories\SpecialityRepository.java
