@@ -1,14 +1,15 @@
 package com.atul.sfgpetclinic.controllers;
 
+import com.atul.sfgpetclinic.model.Owner;
 import com.atul.sfgpetclinic.services.OwnerService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @RequestMapping("owners")
 //As owner is common in the requestMapping in the given below. So, we just take out that.
@@ -27,15 +28,35 @@ public class OwnerController {
         dataBinder.setAllowedFields("id");
     }
 
-    @RequestMapping({"","/","index","index.html"})
-    public String listOwners(Model model){
-        model.addAttribute("owners", ownerService.findAll());
-        return "owners/index";
+    @RequestMapping("/find")
+    public String findOwners(Model model){
+        model.addAttribute("owner", Owner.builder().build());
+        return "owners/findOwners";
     }
 
-    @RequestMapping("/find")
-    public String findOwners(){
-        return "notImplemented";
+    @GetMapping
+    public String listFindedOwnersByLastName(Owner owner, BindingResult result,Model model,@RequestParam("lastName") String lastName){
+        owner.setLastName(lastName);
+        if (owner.getLastName() == null) {
+            owner.setLastName(""); // empty string signifies broadest possible search
+        }
+
+        List<Owner> ownerList=ownerService.findAllByLastNameLike("%"+owner.getLastName()+"%");
+
+        if (ownerList.isEmpty()){
+            result.rejectValue("lastName","notFound","not found");
+            return "owners/findOwners";
+        }
+        else if (ownerList.size()==1){
+            //if 1 owner found
+            owner=ownerList.get(0);
+            return "redirect:/owners/"+owner.getId();
+        }
+        else {
+            // if multiple owners found
+            model.addAttribute("selections",ownerList);
+            return "owners/ownersList";
+        }
     }
 
     @GetMapping("/{owner_id}")
