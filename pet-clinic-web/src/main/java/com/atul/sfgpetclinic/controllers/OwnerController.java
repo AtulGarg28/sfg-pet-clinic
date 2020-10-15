@@ -9,6 +9,7 @@ import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RequestMapping("owners")
@@ -16,6 +17,8 @@ import java.util.List;
 
 @Controller
 public class OwnerController {
+
+    private static final String CREATE_OWNER="owners/createOrUpdateOwnerForm";
 
     private final OwnerService ownerService;
 
@@ -35,7 +38,8 @@ public class OwnerController {
     }
 
     @GetMapping
-    public String listFindedOwnersByLastName(Owner owner, BindingResult result,Model model,@RequestParam("lastName") String lastName){
+    public String listFindedOwnersByLastName(Owner owner, BindingResult result,Model model,
+                                             @ModelAttribute("lastName") String lastName){
         owner.setLastName(lastName);
         if (owner.getLastName() == null) {
             owner.setLastName(""); // empty string signifies broadest possible search
@@ -64,5 +68,61 @@ public class OwnerController {
         ModelAndView mav=new ModelAndView("owners/ownerDetails");
         mav.addObject(ownerService.findById(owner_id));
         return mav;
+    }
+
+    @GetMapping("/new")
+    public String initAddNewOwner(Model model){
+        model.addAttribute("owner",Owner.builder().build());
+        return CREATE_OWNER;
+    }
+
+    @PostMapping("/new")
+    public String processAddNewOwner(Owner owner,BindingResult result,
+                              @ModelAttribute("firstName") String firstName,
+                              @ModelAttribute("lastName") String lastName,
+                              @ModelAttribute("address") String address,
+                              @ModelAttribute("city") String city,
+                              @ModelAttribute("telephone") String telephone){
+        if (result.hasErrors()){
+            return CREATE_OWNER;
+        }else {
+            owner.setFirstName(firstName);
+            owner.setLastName(lastName);
+            owner.setAddress(address);
+            owner.setCity(city);
+            owner.setTelephone(telephone);
+            Owner savedOwner=ownerService.save(owner);
+            return "redirect:/owners/"+savedOwner.getId();
+        }
+    }
+
+    @GetMapping("/{owner_id}/edit")
+    public String updateOwnerRecord(@PathVariable("owner_id") Long owner_id,Model model){
+        model.addAttribute("owner",ownerService.findById(owner_id));
+        return CREATE_OWNER;
+    }
+
+    @PostMapping("/{owner_id}/edit")
+    public String showUpdateOwnerRecord(@Valid Owner owner,
+                                        @PathVariable("owner_id") Long owner_id,
+                                        BindingResult result,
+                                        @RequestParam("firstName") String firstName,
+                                        @RequestParam("lastName") String lastName,
+                                        @RequestParam("address") String address,
+                                        @RequestParam("city") String city,
+                                        @RequestParam("telephone") String telephone){
+        if (result.hasErrors()){
+            return CREATE_OWNER;
+        }else {
+            owner.setId(owner_id);
+            owner.setFirstName(firstName);
+            owner.setLastName(lastName);
+            owner.setAddress(address);
+            owner.setCity(city);
+            owner.setTelephone(telephone);
+
+            Owner savedOwner=ownerService.save(owner);
+            return "redirect:/owners/"+savedOwner.getId();
+        }
     }
 }
