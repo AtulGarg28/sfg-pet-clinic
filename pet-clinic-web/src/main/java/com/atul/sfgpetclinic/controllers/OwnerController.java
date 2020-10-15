@@ -106,11 +106,11 @@ public class OwnerController {
     public String showUpdateOwnerRecord(@Valid Owner owner,
                                         @PathVariable("owner_id") Long owner_id,
                                         BindingResult result,
-                                        @RequestParam("firstName") String firstName,
-                                        @RequestParam("lastName") String lastName,
-                                        @RequestParam("address") String address,
-                                        @RequestParam("city") String city,
-                                        @RequestParam("telephone") String telephone){
+                                        @ModelAttribute("firstName") String firstName,
+                                        @ModelAttribute("lastName") String lastName,
+                                        @ModelAttribute("address") String address,
+                                        @ModelAttribute("city") String city,
+                                        @ModelAttribute("telephone") String telephone){
         if (result.hasErrors()){
             return CREATE_OWNER;
         }else {
