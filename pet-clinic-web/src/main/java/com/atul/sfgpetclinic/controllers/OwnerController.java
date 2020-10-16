@@ -18,7 +18,7 @@ import java.util.List;
 @Controller
 public class OwnerController {
 
-    private static final String CREATE_OWNER="owners/createOrUpdateOwnerForm";
+    private static final String CREATE_OR_UPDATE_OWNER ="owners/createOrUpdateOwnerForm";
 
     private final OwnerService ownerService;
 
@@ -73,7 +73,7 @@ public class OwnerController {
     @GetMapping("/new")
     public String initAddNewOwner(Model model){
         model.addAttribute("owner",Owner.builder().build());
-        return CREATE_OWNER;
+        return CREATE_OR_UPDATE_OWNER;
     }
 
     @PostMapping("/new")
@@ -84,7 +84,7 @@ public class OwnerController {
                               @ModelAttribute("city") String city,
                               @ModelAttribute("telephone") String telephone){
         if (result.hasErrors()){
-            return CREATE_OWNER;
+            return CREATE_OR_UPDATE_OWNER;
         }else {
             owner.setFirstName(firstName);
             owner.setLastName(lastName);
@@ -99,7 +99,7 @@ public class OwnerController {
     @GetMapping("/{owner_id}/edit")
     public String updateOwnerRecord(@PathVariable("owner_id") Long owner_id,Model model){
         model.addAttribute("owner",ownerService.findById(owner_id));
-        return CREATE_OWNER;
+        return CREATE_OR_UPDATE_OWNER;
     }
 
     @PostMapping("/{owner_id}/edit")
@@ -112,7 +112,7 @@ public class OwnerController {
                                         @ModelAttribute("city") String city,
                                         @ModelAttribute("telephone") String telephone){
         if (result.hasErrors()){
-            return CREATE_OWNER;
+            return CREATE_OR_UPDATE_OWNER;
         }else {
             owner.setId(owner_id);
             owner.setFirstName(firstName);
