@@ -1,2 +1,3 @@
 com\atul\sfgpetclinic\SfgPetClinicApplicationTests.class
 com\atul\sfgpetclinic\controllers\OwnerControllerTest.class
+com\atul\sfgpetclinic\controllers\PetControllerTest.class

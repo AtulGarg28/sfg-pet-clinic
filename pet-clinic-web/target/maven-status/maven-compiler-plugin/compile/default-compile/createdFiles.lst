@@ -1,5 +1,7 @@
+com\atul\sfgpetclinic\controllers\PetController.class
 com\atul\sfgpetclinic\controllers\IndexController.class
 com\atul\sfgpetclinic\controllers\VetController.class
 com\atul\sfgpetclinic\bootstrap\DataLoader.class
 com\atul\sfgpetclinic\controllers\OwnerController.class
 com\atul\sfgpetclinic\SfgPetClinicApplication.class
+com\atul\sfgpetclinic\controllers\VisitController.class
